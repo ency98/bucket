@@ -577,6 +577,7 @@ fi
 export CITY="Riyadh"
 export LATITUDE="24.6815"
 export LONGITUDE="46.6214"
+export PROVIDER="om"
 
 #^ Rustormy function
 
@@ -585,44 +586,44 @@ weather() {
 		case $1 in
 			"ksa")
 				echo
-				rustormy -c "Riyadh" --name --colors --lat "24.6815" --lon "46.6214" --provider "om" --one-line
+				rustormy -c "Riyadh" --name --colors --lat "24.6815" --lon "46.6214" --provider $PROVIDER --one-line
 				echo
 				;;
 			"--ksa")
 				echo
-				rustormy -c "Riyadh" --name --colors --lat "24.6815" --lon "46.6214" --provider "om"
+				rustormy -c "Riyadh" --name --colors --lat "24.6815" --lon "46.6214" --provider $PROVIDER
 				echo
 				;;
 			"rdu")
 				echo
-				rustormy -c "Raleigh" --name --colors --lat "35.8319" --lon "-78.5992" --provider "om" --one-line
+				rustormy -c "Raleigh" --name --colors --lat "35.8319" --lon "-78.5992" --provider $PROVIDER --one-line
 				echo
 				;;
 			"--rdu")
 				echo
-				rustormy -c "Raleigh" --name --colors --lat "35.8319" --lon "-78.5992" --provider "om"
+				rustormy -c "Raleigh" --name --colors --lat "35.8319" --lon "-78.5992" --provider $PROVIDER
 				echo
 				;;
 			"kin")
 				echo
-				rustormy -c "Goldsboro" --name --colors --lat "35.3336" --lon "-77.9404" --provider "om" --one-line
+				rustormy -c "Goldsboro" --name --colors --lat "35.3336" --lon "-77.9404" --provider $PROVIDER --one-line
 				echo
 				;;
 			"--kin")
 				echo
-				rustormy -c "Goldsboro" --name --colors --lat "35.3336" --lon "-77.9404" --provider "om"
+				rustormy -c "Goldsboro" --name --colors --lat "35.3336" --lon "-77.9404" --provider $PROVIDER
 				echo
 				;;
 			"--all")
 				echo
-				rustormy -c "Riyadh" --name --colors --lat "24.6815" --lon "46.6214" --provider "om" --one-line
-				rustormy -c "Raleigh" --name --colors --lat "35.8319" --lon "-78.5992" --provider "om" --one-line
-				rustormy -c "Goldsboro" --name --colors --lat "35.3336" --lon "-77.9404" --provider "om" --one-line
+				rustormy -c "Riyadh" --name --colors --lat "24.6815" --lon "46.6214" --provider $PROVIDER --one-line
+				rustormy -c "Raleigh" --name --colors --lat "35.8319" --lon "-78.5992" --provider $PROVIDER --one-line
+				rustormy -c "Goldsboro" --name --colors --lat "35.3336" --lon "-77.9404" --provider $PROVIDER --one-line
 				echo
 				;;
 			*)
 				echo
-				rustormy -c "$CITY" --name --colors --lat "$LATITUDE" --lon "$LONGITUDE" --provider "om" --one-line
+				rustormy -c "$CITY" --name --colors --lat "$LATITUDE" --lon "$LONGITUDE" --provider $PROVIDER --one-line
 				echo -e "\n\n${B_BLUE}Full info  RDU, RMT (KSA), and KIN.\n ${B_WHITE}* ${YELLOW}weather-ksa ${B_WHITE}* ${YELLOW}weather-rdu ${B_WHITE}* ${YELLOW}weather-kin${NC}"
 				echo -e "\n${B_BLUE}Quick info for  RDU, RMT (KSA), and KIN in a single line.\n ${B_WHITE}* ${YELLOW}outside-ksa ${B_WHITE}* ${YELLOW}outside-rdu ${B_WHITE}* ${YELLOW}outside-kin${NC}"
 				echo -e "\n${B_BLUE}Info location set as default location set in rc file.\n ${B_WHITE}* ${YELLOW}outside${NC}\n\n"
@@ -634,20 +635,21 @@ weather() {
 
 	#^ Full info aliases
 
-	alias weather-ksa='rustormy -c "Riyadh" --name --colors --lat "24.6815" --lon "46.6214" --provider "om"'
-	alias weather-rdu='rustormy -c "Raleigh" --name --colors --lat "35.8319" --lon "-78.5992" --provider "om"'
-	alias weather-kin='rustormy -c "Goldsboro" --name --colors --lat "35.3336" --lon "-77.9404" --provider "om"'
+	alias weather-ksa='rustormy -c "Riyadh" --name --colors --lat "24.6815" --lon "46.6214" --provider $PROVIDER'
+	alias weather-rdu='rustormy -c "Raleigh" --name --colors --lat "35.8319" --lon "-78.5992" --provider $PROVIDER'
+	alias weather-kin='rustormy -c "Goldsboro" --name --colors --lat "35.3336" --lon "-77.9404" --provider $PROVIDER'
 
 	#^ Oneliner aliases
 
-	alias outside-ksa='rustormy -c "Riyadh" --name --colors --lat "24.6815" --lon "46.6214" --provider "om" --one-line'
-	alias outside-rdu='rustormy -c "Raleigh" --name --colors --lat "35.8319" --lon "-78.5992" --provider "om" --one-line'
-	alias outside-kin='rustormy -c "Goldsboro" --name --colors --lat "35.3336" --lon "-77.9404" --provider "om" --one-line'
+	alias outside-ksa='rustormy -c "Riyadh" --name --colors --lat "24.6815" --lon "46.6214" --provider $PROVIDER --one-line'
+	alias outside-rdu='rustormy -c "Raleigh" --name --colors --lat "35.8319" --lon "-78.5992" --provider $PROVIDER --one-line'
+	alias outside-kin='rustormy -c "Goldsboro" --name --colors --lat "35.3336" --lon "-77.9404" --provider $PROVIDER --one-line'
 
 	#^ Quick outside weather check
 
 	alias outside='outside-ksa'
 }
+
 
 #! - - - - - - !#
 
